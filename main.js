@@ -1,4 +1,6 @@
-// JavaScript để xử lý sự kiện khi form được submit
+// Khởi tạo biến kiểm tra lỗi
+var hasError = false;
+
 document.getElementById("myForm").addEventListener("submit", (event) => {
     event.preventDefault(); // Ngăn chặn form submit mặc định
 
@@ -15,38 +17,45 @@ document.getElementById("myForm").addEventListener("submit", (event) => {
     var phonePattern = /^\d+$/;
     if (!phone.match(phonePattern)) {
         displayError("phoneError", "Số điện thoại không hợp lệ. Vui lòng nhập lại.");
+        hasError = true;
     }
 
     var emailPattern = /^[a-zA-Z0-9._-]+@gmail.com$/; // Đúng định dạng @gmail.com
     if (!email.match(emailPattern)) {
-        displayError("emailError", "Email không hợp lệ. Vui lòng nhập lại.");
+        displayError("emailError", "Email không hợp lệ. Vui lòng nhập đúng định dạng.");
+        hasError = true;
     }
-
 
     // Kiểm tra chọn tỉnh / thành phố
     if (city === "") {
         displayError("cityError", "Vui lòng chọn tỉnh / thành phố.");
-        return;
+        hasError = true;
     }
 
     // Kiểm tra chọn quận / huyện
     if (district === "") {
         displayError("districtError", "Vui lòng chọn quận / huyện.");
-        return;
+        hasError = true;
     }
 
-    // Hiển thị dữ liệu trong phần kết quả
-    var result = document.getElementById("result");
-    result.innerHTML = `
-        <h3>Kết quả:</h3>
-        <p>Số điện thoại: ${phone}</p>
-        <p>Email: ${email}</p>
-        <p>Tỉnh / Thành phố: ${cityMap[city]}</p>
-        <p>Quận / Huyện: ${district}</p>
-      `;
+    // Nếu có lỗi, không hiển thị kết quả
+    if (hasError) {
+        var result = document.getElementById("result");
+        result.innerHTML = "";
+    } else {
+        // Hiển thị dữ liệu trong phần kết quả
+        var result = document.getElementById("result");
+        result.innerHTML = `
+            <h3>Kết quả:</h3>
+            <p>Số điện thoại: ${phone}</p>
+            <p>Email: ${email}</p>
+            <p>Tỉnh / Thành phố: ${cityMap[city]}</p>
+            <p>Quận / Huyện: ${district}</p>
+        `;
+    }
 
-
-
+    // Đặt lại biến hasError thành false sau khi xử lý xong
+    hasError = false;
 });
 
 

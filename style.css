@@ -1,0 +1,103 @@
+body {
+    background-color: #3498db;
+    margin: 0;
+    padding: 0;
+}
+
+#form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px 40px 20px 20px;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    text-align: center;
+    color: red;
+}
+
+h3 {
+    width: 80px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+}
+
+select {
+    width: 422px;
+    padding: 10px 20px 10px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    /* Căn giữa theo chiều ngang */
+}
+
+
+button:hover {
+    background-color: #2980b9;
+}
+
+
+#result {
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    color: #333;
+    width: 100%;
+}
+
+#result h3,
+#result p {
+    margin: 0;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#result h3 {
+    background-color: #3498db;
+    color: #fff;
+}
+
+#result p {
+    background-color: #f7f7f7;
+}
